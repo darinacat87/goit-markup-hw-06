@@ -110,7 +110,7 @@ transition: background-color var(--transition-timing) var(--transition-function)
 /* Header section */
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 9;
@@ -314,7 +314,6 @@ justify-content: center;
         background-color: #188ce8;
     }
 
-}
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -326,7 +325,7 @@ justify-content: center;
 transition: opacity var(--transition-timing) var(--transition-function), visibility var(--transition-timing) var(--transition-function);
 }
 
-.modal-backdrop .is-hidden {
+.modal-backdrop.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -344,7 +343,7 @@ transition: opacity var(--transition-timing) var(--transition-function), visibil
     width: 528px;
     height: 581px;
     background-color: var(--main-bg-cl);
-    box-shadow: box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -388,6 +387,7 @@ transition: color var(--transition-timing) var(--transition-function);
     font-weight: 700;
     font-size: 20px;
     line-height: 1.15;
+    margin-top: 40px;
     color: var(--main-txt-cl);
 }
 
@@ -399,6 +399,8 @@ transition: color var(--transition-timing) var(--transition-function);
     display: block;
     margin-bottom: 10px;
     text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .form-field.comments {
@@ -407,7 +409,7 @@ transition: color var(--transition-timing) var(--transition-function);
 
 .form-field:focus-within .form-input,
 .form-field:focus-within .form-comments {
-    outline:0;
+    outline: 0;
     border-color: var(--accent-cl);
 }
 
@@ -421,6 +423,7 @@ transition: color var(--transition-timing) var(--transition-function);
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
+    color: var(--gris-txt-cl);
 }
 
 .form-input-container {
@@ -499,7 +502,9 @@ transition: color var(--transition-timing) var(--transition-function);
             height: 15px;
             transform: scale(0.2);
             opacity: 0;
+            fill: var(--secondary-txt-cl);
             transition: transform var(--transition-timing) var(--transition-function), opacity var(--transition-timing) var(--transition-function);
+            
         }
     
         .checkbox-icon-unchecked {
@@ -514,50 +519,50 @@ transition: color var(--transition-timing) var(--transition-function);
             transition: border-color var(--transition-timing) var(--transition-function), border-color var(--transition-timing) var(--transition-function);
         }
     
-        .checkbox:checked + .checkbox-icon-checked {
-            transform: scale(1);
-            opacity: 1;
-        }
+
+        
+                .checkbox:checked~.checkbox-icon-checked {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+        
     
-        .checkbox:checked ~ .checkbox-icon-unchecked {
+        
+    
+        .checkbox:checked~.checkbox-icon-unchecked {
             border-color: var(--accent-cl);
+            background-color: var(--accent-bg-cl);
         }
     
-        .checkbox:focus ~ .checkbox-icon-unchecked,
-        .checkbox:hover ~ .checkbox-icon-unchecked {
-            border-color: var(--accent-cl);
-        }
-    
-        .checkbox:focus:checked ~ .checkbox-icon-unchecked,
-        .checkbox:hover:checked ~ .checkbox-icon-unchecked {
-            border-color: var(--main-txt-cl);
-        }
-    
+.checkbox:hover~.checkbox-icon-unchecked {
+    border-color: var(--accent-cl);
+}
+
         .checkbox {
             position: absolute;
             white-space: nowrap;
-            width: 1px;
-            height: 1px;
+            width: 0px;
+            height: 0px;
             overflow: hidden;
             border: 0;
             padding: 0;
-            clip: rect(0 0 0 0);
-            clip-path: inset(50%);
             margin: -1px;
+            opacity: 0;
         }
     
         .checkbox-label {
+            font-size: 14px;
             line-height: 1.71;
+            letter-spacing: 0.03em;
             cursor: pointer;
             user-select: none;
+            color: var(--gris-txt-cl);
         }
     
         .checkbox-label-link {
             color: var(--accent-cl);
             text-decoration-line: underline;
         }
-
-
 
 
 /* Features section */
@@ -610,7 +615,6 @@ color:var(--main-txt-cl);
 }
 
 
-
 /* About section */ /* Team section */
 
 .about {
@@ -656,6 +660,7 @@ color: var(--main-txt-cl);
     width: 100%;
     height: 70px;
     font-weight: 700;
+    font-size: 14px;
     line-height: 1.14;
     text-align: center;
     text-transform: uppercase;
@@ -908,7 +913,11 @@ text-decoration: none;
 .footer-subscribe-caption {
     display: inline-block;
     margin-bottom: 20px;
-
+    font-weight: 700;
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
     color: var(--secondary-txt-cl);
     line-height: 1.14;
     text-transform: uppercase;
@@ -954,6 +963,7 @@ text-decoration: none;
 
 .footer-button-icon {
     margin-left: 10px;
+    fill: var(--secondary-txt-cl);
 }
 
 
